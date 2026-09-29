@@ -1,0 +1,121 @@
+uname -a
+hostnamectl
+sudo apt update
+sudo apt upgrade
+apt list --upgradable
+cat /etc/apt/sources.list.d/ubuntu.sources
+sudo apt install vim
+cd "$HOME"
+mkdir -p "$LAB/sandbox/Downloads"
+cd "$LAB/sandbox/Downloads"
+man ls
+ls -la
+apt download hello
+dpkg -i ./hello_*.deb
+sudo dpkg -i ./hello_*.deb
+cd /
+sudo -i
+echo "hi all"
+echo "$PWD hi all here!"
+cd "$LAB/sandbox"
+touch hi.sh
+echo "$PATH"
+vi hi.sh
+./hi.sh
+chmod a+x hi.sh
+chmod a+rwx hi.sh
+./hi.sh
+vi hi.sh
+vi hi.sh
+./hi.sh
+./hi.sh Ukraine
+mkdir -p scripts
+cp hi.sh scripts/
+mkdir -p Documents
+cp scripts Documents
+cp scripts Documents/
+cp -r scripts DOcuments/
+mv DOcuments/ Documents/
+cd Documents/scripts
+mv hi.sh ../
+cd ..
+rm scripts
+rmdir scripts
+cd /bin
+ls -l
+cd ../..
+cd "$LAB/sandbox"
+ls
+tar =czvf scripts.tar.gz scripts
+tar -czvf scripts.tar.gz scripts
+cat hi.sh
+cd ..
+lsdx
+ls
+mv hi.sh sandbox/
+cd -
+cat hi.sh
+printf "start
+%s
+finish
+printf "start
+%s
+finish
+" "$(date -Is)" > demo.log
+cat demo.log
+tail -n 20 demo.log
+less demo.log
+cd /
+find /etc /usr/share -name dhcp 2>/dev/null
+find /etc /usr/share -iname "*dhcp*" 2>/dev/null
+find /etc /usr/share -iname "*dhcp*" 2>/dev/null | grep --color=always -i dhcp
+find /etc /usr/share -iname "*dhcp*" 2>/dev/null | grep --color=always -i etc
+ping -c 4 google.com
+cd "$LAB/sandbox"
+ping google.com > ping.log &
+date >> ping.log
+fg
+cat ping.log 
+date >> ping.log
+cat ping.log 
+sudo sh -c 'echo $$ > /tmp/qa3520-ping.pid; exec ping -c 120 google.com' > "$LAB/results/ping-root.log" 2>&1 &
+# [redacted: accidental password input]
+vlc
+ls -la
+cd /bin
+ls
+echo "$PATH"
+set
+whoami
+cd /etc
+ls
+cd ..
+cd /lib
+ls
+dmesg | tail -20
+sudo dmesg | tail -20
+ls -l /dev
+sudo dmesg > "$LAB/results/dmesg-before.txt"
+sudo dmesg -C
+sudo dmesg -w
+df -hT
+cd /home
+ls -la
+lsmod
+cd /proc
+cat cpuinfo
+echo 1 > /proc/sys/net/ipv4/ip_forward
+sudo echo 1 > /proc/sys/net/ipv4/ip_forward
+sudo ip netns exec qa3520-r bash
+ifconfig
+ifconfig -a
+cd "$HOME"
+cd "$LAB/sandbox"
+echo vika > 1.txt
+cat 1.txt
+echo vasya > 2.txt
+cat 2.txt
+diff -u 1.txt 2.txt
+history
+lspci
+history -w "$LAB/results/history.txt"

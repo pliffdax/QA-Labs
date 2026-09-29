@@ -1,0 +1,17 @@
+fg
+ping google.com
+fg
+ps -eo user,pid,lstart,stat,time,args | grep '[p]ing'
+kill -TERM 32414
+ps -eo user,pid,lstart,stat,time,args | grep '[p]ing'
+kill -CONT 32414
+kill -TERM 32414
+ps -p 32414 -o pid,stat,args
+ps -eo user,pid,lstart,stat,time,args | grep '[p]ing'
+kill -TERM "$(cat /tmp/qa3520-ping.pid)"
+kill -TERM 32521
+sudo kill -KILL 32521
+pgrep -a -u "$USER" vlc
+pgrep -a -u "$USER" vlc
+sudo kill -TERM 32719
+history -w "$LAB/results/history-terminal2.txt"

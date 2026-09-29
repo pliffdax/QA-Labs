@@ -1,0 +1,12 @@
+.DS_Store
+*.docex.session/
+__pycache__/
+.pytest_cache/
+*.pyc
+
+GUIDE.md
+WALKTHROUGH.md
+DEFENSE.md
+DEFENSE-GUIDE.md
+DEFENSE_GUIDE.md
+START-HERE.md

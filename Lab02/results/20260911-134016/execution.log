@@ -1,0 +1,31 @@
+$ ip netns exec qa3520-c ip addr flush dev c0
+$ ip netns exec qa3520-c ip addr add 10.35.20.10/24 dev c0
+$ ip netns exec qa3520-c ip route replace default via 10.35.20.1
+$ ip netns exec qa3520-r ip -j link show r0
+[{"ifindex":2,"link_index":3,"ifname":"r0","flags":["BROADCAST","MULTICAST","UP","LOWER_UP"],"mtu":1500,"qdisc":"noqueue","operstate":"UP","linkmode":"DEFAULT","group":"default","txqlen":1000,"link_type":"ether","address":"9e:41:68:a1:63:72","broadcast":"ff:ff:ff:ff:ff:ff","link_netnsid":0}]
+$ ip netns exec qa3520-c ip neigh flush dev c0
+$ ip netns exec qa3520-c ping -c 3 10.35.20.1
+PING 10.35.20.1 (10.35.20.1) 56(84) bytes of data.
+64 bytes from 10.35.20.1: icmp_seq=1 ttl=64 time=0.116 ms
+64 bytes from 10.35.20.1: icmp_seq=2 ttl=64 time=0.123 ms
+64 bytes from 10.35.20.1: icmp_seq=3 ttl=64 time=0.144 ms
+
+--- 10.35.20.1 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2048ms
+rtt min/avg/max/mdev = 0.116/0.127/0.144/0.011 ms
+$ ip netns exec qa3520-c ip neigh show
+10.35.20.1 dev c0 lladdr 9e:41:68:a1:63:72 REACHABLE 
+$ ip netns exec qa3520-c ip neigh replace 10.35.20.1 lladdr 9e:41:68:a1:63:72 nud permanent dev c0
+$ ip netns exec qa3520-c ping -c 3 10.35.20.1
+PING 10.35.20.1 (10.35.20.1) 56(84) bytes of data.
+64 bytes from 10.35.20.1: icmp_seq=1 ttl=64 time=0.099 ms
+64 bytes from 10.35.20.1: icmp_seq=2 ttl=64 time=0.050 ms
+64 bytes from 10.35.20.1: icmp_seq=3 ttl=64 time=0.058 ms
+
+--- 10.35.20.1 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2040ms
+rtt min/avg/max/mdev = 0.050/0.069/0.099/0.021 ms
+$ ip netns exec qa3520-c ip neigh show
+10.35.20.1 dev c0 lladdr 9e:41:68:a1:63:72 PERMANENT 
+$ ip netns exec qa3520-c ip neigh del 10.35.20.1 dev c0
+Results: /home/pliffdax/study/2026-Fall/QA/lab02/results/20260911-134016
