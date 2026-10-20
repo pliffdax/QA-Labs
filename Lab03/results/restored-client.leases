@@ -1,0 +1,15 @@
+lease {
+  interface "b0";
+  fixed-address 10.35.20.100;
+  option subnet-mask 255.255.255.0;
+  option routers 10.35.20.1;
+  option dhcp-lease-time 600;
+  option dhcp-message-type 5;
+  option domain-name-servers 192.168.1.1;
+  option dhcp-server-identifier 10.35.20.1;
+  option broadcast-address 10.35.20.255;
+  option domain-name "qa3520.example";
+  renew 2 2026/10/20 16:43:51;
+  rebind 2 2026/10/20 16:48:00;
+  expire 2 2026/10/20 16:49:15;
+}

@@ -1,0 +1,29 @@
+{
+  "id": "DHCP-3520-02",
+  "student": "Степанов Олександр Олександрович",
+  "group": "ІО-35",
+  "recordbook": "3520",
+  "variant": 2,
+  "severity": "Major",
+  "priority": "High",
+  "summary": "Новий клієнт не отримує IPv4 без динамічного діапазону DHCP",
+  "preconditions": "Нові файли оренд; лише один сервер; no-range.conf без рядка range; без статичних призначень",
+  "steps": [
+    "Запустити сервер із no-range.conf на a0",
+    "Почати захоплення пакетів",
+    "Запустити новий DHCP-клієнт на b0 на 15 секунд",
+    "Перевірити PCAP, журнал сервера та IPv4 клієнта"
+  ],
+  "expected": "Новому клієнтові видається адреса з пулу через DORA",
+  "actual": "Три Discover, немає Offer/ACK; no free leases; IPv4 відсутня",
+  "cause": "Немає range у підмережі",
+  "fix": "Повернуто range 10.35.20.100 10.35.20.110;",
+  "retest": "PASS: новий DORA; 10.35.20.100/24; ping 3/3, 0% втрат",
+  "evidence": [
+    "no-range-fresh.pcap",
+    "no-range-client.log",
+    "no-range-server.log",
+    "restored-fresh.pcap",
+    "restored-ping.txt"
+  ]
+}

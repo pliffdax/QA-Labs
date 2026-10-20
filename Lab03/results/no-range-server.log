@@ -1,0 +1,15 @@
+Internet Systems Consortium DHCP Server 4.4.3-P1
+Copyright 2004-2022 Internet Systems Consortium.
+All rights reserved.
+For info, please visit https://www.isc.org/software/dhcp/
+Config file: /etc/dhcp/dhcpd-qa3520.conf
+Database file: /var/lib/dhcp/dhcpd.leases.qa3520-no-range
+PID file: /run/dhcpd.pid
+Wrote 0 leases to leases file.
+Listening on LPF/a0/36:84:df:a9:0a:37/10.35.20.0/24
+Sending on   LPF/a0/36:84:df:a9:0a:37/10.35.20.0/24
+Sending on   Socket/fallback/fallback-net
+Server starting service.
+DHCPDISCOVER from 7a:22:7b:1f:9d:3a via a0: network 10.35.20.0/24: no free leases
+DHCPDISCOVER from 7a:22:7b:1f:9d:3a via a0: network 10.35.20.0/24: no free leases
+DHCPDISCOVER from 7a:22:7b:1f:9d:3a via a0: network 10.35.20.0/24: no free leases

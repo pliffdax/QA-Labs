@@ -5,9 +5,9 @@ sudo apt upgrade
 apt list --upgradable
 cat /etc/apt/sources.list.d/ubuntu.sources
 sudo apt install vim
-cd "$HOME"
-mkdir -p "$LAB/sandbox/Downloads"
-cd "$LAB/sandbox/Downloads"
+cd ~
+mkdir -p downloads
+cd ~/downloads
 man ls
 ls -la
 apt download hello
@@ -17,7 +17,7 @@ cd /
 sudo -i
 echo "hi all"
 echo "$PWD hi all here!"
-cd "$LAB/sandbox"
+cd ~/downloads
 touch hi.sh
 echo "$PATH"
 vi hi.sh
@@ -44,7 +44,7 @@ rmdir scripts
 cd /bin
 ls -l
 cd ../..
-cd "$LAB/sandbox"
+cd ~/downloads
 ls
 tar =czvf scripts.tar.gz scripts
 tar -czvf scripts.tar.gz scripts
@@ -52,16 +52,9 @@ cat hi.sh
 cd ..
 lsdx
 ls
-mv hi.sh sandbox/
+mv hi.sh downloads/
 cd -
 cat hi.sh
-printf "start
-%s
-finish
-printf "start
-%s
-finish
-" "$(date -Is)" > demo.log
 cat demo.log
 tail -n 20 demo.log
 less demo.log
@@ -71,15 +64,15 @@ find /etc /usr/share -iname "*dhcp*" 2>/dev/null
 find /etc /usr/share -iname "*dhcp*" 2>/dev/null | grep --color=always -i dhcp
 find /etc /usr/share -iname "*dhcp*" 2>/dev/null | grep --color=always -i etc
 ping -c 4 google.com
-cd "$LAB/sandbox"
+cd ~/downloads
 ping google.com > ping.log &
 date >> ping.log
 fg
-cat ping.log 
+cat ping.log
 date >> ping.log
-cat ping.log 
-sudo sh -c 'echo $$ > /tmp/qa3520-ping.pid; exec ping -c 120 google.com' > "$LAB/results/ping-root.log" 2>&1 &
-# [redacted: accidental password input]
+cat ping.log
+sudo sh -c 'echo $$ > /tmp/qa3520-ping.pid; exec ping -c 120 google.com' > ~/ping-root.log 2>&1 &
+123
 vlc
 ls -la
 cd /bin
@@ -95,7 +88,7 @@ ls
 dmesg | tail -20
 sudo dmesg | tail -20
 ls -l /dev
-sudo dmesg > "$LAB/results/dmesg-before.txt"
+sudo dmesg > ~/dmesg-before.txt
 sudo dmesg -C
 sudo dmesg -w
 df -hT
@@ -109,8 +102,8 @@ sudo echo 1 > /proc/sys/net/ipv4/ip_forward
 sudo ip netns exec qa3520-r bash
 ifconfig
 ifconfig -a
-cd "$HOME"
-cd "$LAB/sandbox"
+cd ~
+cd ~/downloads
 echo vika > 1.txt
 cat 1.txt
 echo vasya > 2.txt
@@ -118,4 +111,4 @@ cat 2.txt
 diff -u 1.txt 2.txt
 history
 lspci
-history -w "$LAB/results/history.txt"
+history -w history.txt

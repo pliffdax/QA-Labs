@@ -1,12 +1,4 @@
 .DS_Store
-*.docex.session/
+Thumbs.db
 __pycache__/
-.pytest_cache/
 *.pyc
-
-GUIDE.md
-WALKTHROUGH.md
-DEFENSE.md
-DEFENSE-GUIDE.md
-DEFENSE_GUIDE.md
-START-HERE.md

@@ -14,4 +14,4 @@ sudo kill -KILL 32521
 pgrep -a -u "$USER" vlc
 pgrep -a -u "$USER" vlc
 sudo kill -TERM 32719
-history -w "$LAB/results/history-terminal2.txt"
+history -w history-terminal2.txt
